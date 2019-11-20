@@ -85,7 +85,7 @@ VALUES
 DROP TABLE IF EXISTS `workshopQuestions`;
 CREATE TABLE `workshopQuestions` (
   `workshopQuestionID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `workshopID` VARCHAR(255),
+  `workshopID` INT UNSIGNED NOT NULL,
   FOREIGN KEY (`workshopID`)
     REFERENCES `workshops` (`workshopID`)
     ON DELETE NO ACTION
