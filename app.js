@@ -3,9 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const passport = require('passport');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+dotenv.config({ path: './.env' });
+
+var db = require('./db.js');
+
+/**
+ * API keys and Passport configuration.
+ */
+const passportConfig = require('./config/passport');
 
 var app = express();
 

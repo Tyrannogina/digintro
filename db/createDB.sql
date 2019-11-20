@@ -2,7 +2,8 @@ START TRANSACTION;
 
 DROP DATABASE `digintro`;
 
-CREATE DATABASE IF NOT EXISTS `digintro`;
+CREATE DATABASE IF NOT EXISTS `digintro`
+CHARACTER SET = 'utf8mb4';
 
 USE digintro;
 
@@ -15,17 +16,23 @@ CREATE TABLE `roles` (
   PRIMARY KEY (`roleID`)
 );
 
+INSERT INTO roles(description)
+VALUES
+  ('Student'),
+  ('Teacher'),
+  ('School manager');
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `userUUID` VARCHAR(31) UNIQUE NOT NULL,
+  `userUUID` VARCHAR(20) UNIQUE NOT NULL,
   `firstName` VARCHAR(255),
   `lastName` VARCHAR(255),
   `emailAddress` VARCHAR(255) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
-  `roleID` INT UNSIGNED NOT NULL,
   `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP(),
   `deletedAt` DATETIME DEFAULT NULL,
+  `roleID` INT UNSIGNED NOT NULL,
   FOREIGN KEY (`roleID`)
     REFERENCES `roles` (`roleID`)
     ON DELETE NO ACTION
@@ -33,11 +40,11 @@ CREATE TABLE `users` (
   PRIMARY KEY (`userID`)
 );
 
-INSERT INTO users(userUUID, firstName, lastName, emailAddress, password) VALUES
-  ('MEMTYP-2', 'Jason', 'Wong', 'J.Wong@gmaail.com', 'ada123'),
-  ('MEMTYP-2', 'Karen', 'Thomas', 'KarenThomas@btinteernet.com', 'nyc911'),
-  ('MEMTYP-1', 'Mohammed', 'Wahed', 'Mo_Wahed@yahooo.co.uk', 'glow123'),
-  ('MEMTYP-1', 'Julie', 'Ahmed', 'JAhmed@mns.com', '123ererer');
+INSERT INTO users(userUUID, firstName, lastName, emailAddress, password, roleID) VALUES
+  ('fasdf', 'Jason', 'Wong', 'J.Wong@gmaail.com', 'ada123', 1),
+  ('2asdg', 'Karen', 'Thomas', 'KarenThomas@btinteernet.com', 'nyc911', 1),
+  ('ialsh', 'Mohammed', 'Wahed', 'Mo_Wahed@yahooo.co.uk', 'glow123', 2),
+  ('83hwj', 'Julie', 'Ahmed', 'JAhmed@mns.com', '123ererer', 1);
 
 DROP TABLE IF EXISTS `classes`;
 CREATE TABLE `classes` (
@@ -47,7 +54,7 @@ CREATE TABLE `classes` (
   PRIMARY KEY (`classID`)
 );
 
-INSERT INTO `classes`(description)
+INSERT INTO `classes`(name, classroomNumber)
 VALUES
 ();
 

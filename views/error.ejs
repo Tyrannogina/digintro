@@ -1,6 +1,5 @@
-<%{ './layout.html' }%>
-<%{ error %>
-  <% if (error) { %>
-    <%= error %>
-  <% } %>
-<%} %>
+<%- include('header') -%>
+  <div class="error page">
+    Some error ocurred :(
+  </div>
+<%- include('footer') -%>
