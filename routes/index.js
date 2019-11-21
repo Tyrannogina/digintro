@@ -25,6 +25,7 @@ router.get('/workshop', function(req, res, next) {
 console.log(workshop);
   res.render('workshop', { title: 'ejs' });
 });
+
 router.get('/workshops', function(req, res, next) {
   res.render('workshops', { title: 'ejs' });
 });
