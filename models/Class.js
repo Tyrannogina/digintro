@@ -8,7 +8,7 @@ const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proce
 
 const Class = connection.define('workshops',{
   classID:{
-    type: Sequelize.INTEGER, // All dataTypes format available here http://bit.ly/2ofwgAm
+    type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
@@ -17,7 +17,7 @@ const Class = connection.define('workshops',{
 });
 
 // Syncing all our model to our DB
-connection.sync().then(()=>{
+connection.sync().then(() => {
   console.log("Connected to DB");
 })
 

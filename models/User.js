@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const Role = require('./Role')
 
 const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD,
 {
@@ -8,7 +9,7 @@ const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proce
 
 const User = connection.define('users',{
   userID:{
-    type: Sequelize.INTEGER, // All dataTypes format available here http://bit.ly/2ofwgAm
+    type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
@@ -21,6 +22,8 @@ const User = connection.define('users',{
   createdAt: Sequelize.DATE,
   deletedAt: Sequelize.DATE,
 });
+
+User.belongsTo(Role, {foreignKey: 'roleID'})
 
 // Syncing all our model to our DB
 connection.sync().then(()=>{

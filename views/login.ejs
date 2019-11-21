@@ -1,16 +1,23 @@
 <%- include('header') -%>
 <%- include('navBar') -%>
-<div class="mainContent" style="margin: 100px;">
-  <form class="loginForm" action="/auth" method="post">
-     <div class="information-email">
-       <input id="emailAddress" type="emailAddress" spellcheck="false">
-       <label for="emailAddress">Email</label>
-     </div>
-     <div class="information-password">
-      <input id="password" type="password" spellcheck="false">
-      <label for="password">Password</label>
+  <div class="row justify-content-center" style="padding-top:20px"></div>
+  <div class="row justify-content-center mainContent">
+    <div class="col-4">
+      <form class="loginForm" action="/auth" method="post">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+          </div>
+          <input type="text" class="form-control" placeholder="emailAddress" aria-label="emailAddress" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Password</span>
+          </div>
+          <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" name="submit" class="btn btn-dark">Log in</button>
+      </form>
     </div>
-    <button type="submit" name="submit">Log in</button>
-  </form>
-</div>
+  </div>
 <%- include('footer') -%>

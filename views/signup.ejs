@@ -1,24 +1,35 @@
 <%- include('header') -%>
 <%- include('navBar') -%>
-<div class="mainContent" style="margin: 100px;">
-  <form class="signupForm" action="/auth/signup" method="post">
-    <div class="information-firstName">
-      <input id="firstName" type="firstName" spellcheck="false">
-      <label for="firstName">First name</label>
-    </div>
-    <div class="information-lastName">
-      <input id="lastName" type="lastName" spellcheck="false">
-      <label for="lastName">Last name</label>
-    </div>
-     <div class="information-email">
-       <input id="emailAddress" type="emailAddress" spellcheck="false">
-       <label for="emailAddress">Email</label>
-     </div>
-     <div class="information-password">
-      <input id="password" type="password" spellcheck="false">
-      <label for="password">Password</label>
-    </div>
-    <button type="submit" name="submit">Create account</button>
-  </form>
+<div class="row justify-content-center" style="padding-top:50px"></div>
+<div class="row justify-content-center mainContent">
+  <div class="col-4">
+    <form class="signupForm" action="/auth/signup" method="post">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">First name</span>
+        </div>
+        <input type="text" class="form-control" id="firstName" placeholder="firstName" aria-label="firstName" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Last name</span>
+        </div>
+        <input type="text" class="form-control" id="lastName" placeholder="lastName" aria-label="lastName" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Email</span>
+        </div>
+        <input type="text" class="form-control" id="emailAddress" placeholder="emailAddress" aria-label="emailAddress" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Password</span>
+        </div>
+        <input type="password" id="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+      </div>
+      <button type="submit" name="submit" class="btn btn-dark">Create account</button>
+    </form>
+  </div>
 </div>
 <%- include('footer') -%>
