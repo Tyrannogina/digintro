@@ -1,25 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const passport = require('passport');
+const { Strategy: LocalStrategy } = require('passport-local');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
-dotenv.config({ path: './.env' });
-
-var db = require('./db.js');
+const db = require('./db.js');
 
 /**
  * API keys and Passport configuration.
  */
 const passportConfig = require('./config/passport');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.engine('html', require('ejs').renderFile);
@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

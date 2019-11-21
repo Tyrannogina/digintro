@@ -1,7 +1,15 @@
 <%- include('header') -%>
 <%- include('navBar') -%>
 <div class="mainContent" style="margin: 100px;">
-  <form class="loginForm" action="/auth" method="post">
+  <form class="signupForm" action="/auth/signup" method="post">
+    <div class="information-firstName">
+      <input id="firstName" type="firstName" spellcheck="false">
+      <label for="firstName">First name</label>
+    </div>
+    <div class="information-lastName">
+      <input id="lastName" type="lastName" spellcheck="false">
+      <label for="lastName">Last name</label>
+    </div>
      <div class="information-email">
        <input id="emailAddress" type="emailAddress" spellcheck="false">
        <label for="emailAddress">Email</label>
@@ -10,7 +18,7 @@
       <input id="password" type="password" spellcheck="false">
       <label for="password">Password</label>
     </div>
-    <button type="submit" name="submit">Log in</button>
+    <button type="submit" name="submit">Create account</button>
   </form>
 </div>
 <%- include('footer') -%>
